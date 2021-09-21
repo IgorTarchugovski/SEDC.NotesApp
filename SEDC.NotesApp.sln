@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.NotesApp", "SEDC.NotesApp\SEDC.NotesApp.csproj", "{1FEAE1F0-17F5-403E-87A7-C770E37914EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.NotesApp.Domain", "SEDC.NotesApp.Domain\SEDC.NotesApp.Domain.csproj", "{9AC57CD0-D190-42F7-AAB9-3B1CE477AEF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.NotesApp.DataAccess", "SEDC.NotesApp.DataAccess\SEDC.NotesApp.DataAccess.csproj", "{56E2DF4F-DF54-49F5-BD59-57A3ED173C8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.NotesApp.DtoModels", "SEDC.NotesApp.DtoModels\SEDC.NotesApp.DtoModels.csproj", "{35683659-6C02-4774-B5CC-BA5F3BCFD78B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.NotesApp.Services", "SEDC.NotesApp.Services\SEDC.NotesApp.Services.csproj", "{58E4EF12-71E3-4407-B499-71092533BFD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.NotesApp.Shared", "SEDC.NotesApp.Shared\SEDC.NotesApp.Shared.csproj", "{B97F32FA-ED79-4CFA-B71A-658BC70FDA03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FEAE1F0-17F5-403E-87A7-C770E37914EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FEAE1F0-17F5-403E-87A7-C770E37914EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FEAE1F0-17F5-403E-87A7-C770E37914EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FEAE1F0-17F5-403E-87A7-C770E37914EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC57CD0-D190-42F7-AAB9-3B1CE477AEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC57CD0-D190-42F7-AAB9-3B1CE477AEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC57CD0-D190-42F7-AAB9-3B1CE477AEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC57CD0-D190-42F7-AAB9-3B1CE477AEF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56E2DF4F-DF54-49F5-BD59-57A3ED173C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E2DF4F-DF54-49F5-BD59-57A3ED173C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E2DF4F-DF54-49F5-BD59-57A3ED173C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E2DF4F-DF54-49F5-BD59-57A3ED173C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35683659-6C02-4774-B5CC-BA5F3BCFD78B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35683659-6C02-4774-B5CC-BA5F3BCFD78B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35683659-6C02-4774-B5CC-BA5F3BCFD78B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35683659-6C02-4774-B5CC-BA5F3BCFD78B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58E4EF12-71E3-4407-B499-71092533BFD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58E4EF12-71E3-4407-B499-71092533BFD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58E4EF12-71E3-4407-B499-71092533BFD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58E4EF12-71E3-4407-B499-71092533BFD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B97F32FA-ED79-4CFA-B71A-658BC70FDA03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B97F32FA-ED79-4CFA-B71A-658BC70FDA03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B97F32FA-ED79-4CFA-B71A-658BC70FDA03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B97F32FA-ED79-4CFA-B71A-658BC70FDA03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9098A6E9-F5AE-404D-A084-08E71DACD431}
+	EndGlobalSection
+EndGlobal
