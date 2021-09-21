@@ -1,22 +1,21 @@
-﻿using System;
+﻿using SEDC.NotesApp.Models.DtoModels;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace SEDC.NotesApp.Models.DbModels
+namespace SEDC.NotesApp.DtoModels
 {
-    public class User
+    public class UserDto
     {
-        public User()
+        public UserDto()
         {
-            Notes = new List<Note>();
+            Notes = new List<NoteDto>();
         }
         public int Id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
-        public virtual List<Note> Notes { get; set; }
+        public List<NoteDto> Notes { get; set; }
     }
 }

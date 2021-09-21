@@ -19,6 +19,7 @@ namespace SEDC.NotesApp.Services.Helpers
 
             // register repositories
             services.AddTransient<IRepository<Note>, NoteRepository>();
+            services.AddTransient<IRepository<User>, UserRepository>();
 
             return services;
         }

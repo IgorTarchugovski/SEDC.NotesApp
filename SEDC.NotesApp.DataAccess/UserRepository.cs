@@ -1,4 +1,5 @@
-﻿using SEDC.NotesApp.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SEDC.NotesApp.Models;
 using SEDC.NotesApp.Models.DbModels;
 using System;
 using System.Collections.Generic;
@@ -23,12 +24,12 @@ namespace SEDC.NotesApp.Repositories
 
         public List<User> GetAll()
         {
-            return _dbContext.Users.ToList();
+            return _dbContext.Users.Include(User => User.Notes).ToList();
         }
 
         public User GetById(int id)
         {
-            return _dbContext.Users.SingleOrDefault(user => user.Id == id);
+            return _dbContext.Users.Include(User => User.Notes).SingleOrDefault(user => user.Id == id);
         }
 
         public void Remove(int id)

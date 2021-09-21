@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SEDC.NotesApp.Models.DtoModels;
 using SEDC.NotesApp.Services.Interfaces;
+using SEDC.NotesApp.Shared.Exceptions;
 
 namespace SEDC.NotesApp.Controllers
 {
@@ -57,9 +58,14 @@ namespace SEDC.NotesApp.Controllers
                 string result = _noteService.AddNewNote(newNote);
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch (BadRequestException ex)
             {
                 return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new { Message = ex.Message });
             }
         }
 
@@ -71,10 +77,20 @@ namespace SEDC.NotesApp.Controllers
                 string result = _noteService.RemoveNote(id);
                 return Ok(result);
             }
+            catch (NoteException ex)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                    new
+                    {
+                        Message = ex.Message,
+                        NoteId = ex.NoteId
+                    });
+            }
             catch (Exception ex)
             {
 
-                return BadRequest(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new { Message = ex.Message });
             }
         }
 
@@ -86,10 +102,20 @@ namespace SEDC.NotesApp.Controllers
                 string result = _noteService.UpdateNote(noteModel);
                 return Ok(result);
             }
+            catch (NoteException ex)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest,
+                    new
+                    {
+                        Message = ex.Message,
+                        NoteId = ex.NoteId,
+                        UserId = ex.UserId
+                    });
+            }
             catch (Exception ex)
             {
-
-                return BadRequest(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new { Message = ex.Message });
             }
         }
     }
