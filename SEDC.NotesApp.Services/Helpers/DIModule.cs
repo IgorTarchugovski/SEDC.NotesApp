@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using SEDC.NotesApp.DataAccess.AdoNet;
 using SEDC.NotesApp.Models;
 using SEDC.NotesApp.Models.DbModels;
 using SEDC.NotesApp.Repositories;
@@ -19,7 +20,10 @@ namespace SEDC.NotesApp.Services.Helpers
 
             // register repositories
             services.AddTransient<IRepository<Note>, NoteRepository>();
-            services.AddTransient<IRepository<User>, UserRepository>();
+            //services.AddTransient<IRepository<User>, UserRepository>();
+            services.AddTransient<IRepository<User>>(
+                x => new AdoNetUserRepository(connectionString)
+            );
 
             return services;
         }
