@@ -2,6 +2,7 @@
 using SEDC.NotesApp.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -129,8 +130,9 @@ namespace SEDC.NotesApp.DataAccess.AdoNet
                     // Do not do this (SQL injection HACK)
                     //command.CommandText = $"SELECT * FROM [USERS] WHERE Id = {id}";
 
-                    command.CommandText = "SELECT * FROM [USERS] WHERE Id = @userId";
-                    command.Parameters.AddWithValue("@userId", id);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandText = "dbo.spUsers_GetById"; // sql stored procedure
+                    command.Parameters.AddWithValue("@id", id);
 
                     SqlDataReader dataReader = command.ExecuteReader();
                     
@@ -141,12 +143,17 @@ namespace SEDC.NotesApp.DataAccess.AdoNet
                         user.Password = (string)dataReader["Password"];
                         user.FirstName = (string)dataReader["FirstName"];
                         user.LastName = (string)dataReader["LastName"];
-                    }                   
+                    }
+                    dataReader.Close();
                 }
-
+                if (user.Id == 0)
+                {
+                    return null;
+                }
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
+
                     command.CommandText = "SELECT * FROM [NOTES] Where userId = @userId";
                     command.Parameters.AddWithValue("@userId", user.Id);
                     SqlDataReader dataReader = command.ExecuteReader();

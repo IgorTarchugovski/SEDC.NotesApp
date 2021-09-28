@@ -46,7 +46,12 @@ namespace SEDC.NotesApp.Services
 
         public UserDto GetById(int id)
         {
-            return _userRepo.GetById(id).ToUserDto();
+            User user = _userRepo.GetById(id);
+            if (user == null)
+            {
+                return null;
+            }
+            return user.ToUserDto();
         }
 
         public void Update(UserDto user)

@@ -58,10 +58,18 @@ namespace SEDC.NotesApp.DataAccess.Dapper
             {
                 connection.Open();
                 User user = new User();
-                using (var multi = connection.QueryMultiple("SELECT * FROM [Users]; SELECT * FROM [Notes]"))
+                // Approach 1
+                string sql = "exec dbo.spUsers_GetById @id; exec dbo.spNotes_GetByUserId @userId";
+
+                // Approach 2
+                //string sql = "dbo.spUsers_GetById; dbo.spNotes_GetByUserId";
+
+                using (var multi = connection
+                    .QueryMultiple(sql, new { id = id, userId = id}))
                 {
                     user = multi.Read<User>().Where(user => user.Id == id).Single();
-                    List<Note> userNotes = multi.Read<Note>().Where(note => note.UserId == user.Id).ToList();
+                    //user = multi.Read<User>().Single();
+                    List<Note> userNotes = multi.Read<Note>().ToList();
                     user.Notes = userNotes;
                 }
                 return user;
