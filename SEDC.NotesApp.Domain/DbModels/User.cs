@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace SEDC.NotesApp.Models.DbModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+        [Computed] // Not in the Database (Ova vo data bazata ne treba da bide tretirano kako kolona)
         public virtual List<Note> Notes { get; set; }
     }
 }
